@@ -9,6 +9,12 @@ Developers building the DMG need internet once to install Python dependencies
 and download the pinned model files from their original Hugging Face repository.
 The completed DMG contains those files and runs offline.
 
+## Easy Download
+
+macOS: Download ImageShield.dmg, double-click to mount, drag ImageShield.app to Applications. First launch: right-click → Open (to bypass Gatekeeper on the unsigned build).
+
+The "right-click → Open" step is required because the DMG is unsigned (no Apple Developer ID). The build script already prints a warning about this — it's expected for a dev/research tool.
+
 ## Build a DMG from a Clean Clone
 
 Requirements:
