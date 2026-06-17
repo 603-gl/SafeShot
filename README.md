@@ -12,6 +12,7 @@ The completed DMG contains those files and runs offline.
 ## Easy Download
 
 macOS: Download ImageShield.dmg, double-click to mount, drag ImageShield.app to Applications. First launch: right-click → Open (to bypass Gatekeeper on the unsigned build).
+Also available via link: https://github.com/603-gl/SafeShot/releases/download/v1.0.0/ImageShield.dmg
 
 The "right-click → Open" step is required because the DMG is unsigned (no Apple Developer ID). The build script already prints a warning about this — it's expected for a dev/research tool.
 
