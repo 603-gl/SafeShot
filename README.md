@@ -191,3 +191,51 @@ application through the Dock or operating-system application controls.
 - One protection job runs at a time to limit accelerator memory use.
 - The installed application is large because it contains PyTorch, Gradio, and
   the model checkpoint.
+
+## Research Acknowledgements and Citations
+ImageShield is built from existent prototypes of EditShield and BlurGuard. 
+
+Core references:
+
+Ruoxi Chen, Haibo Jin, Yixin Liu, Jinyin Chen, Haohan Wang, and Lichao Sun. "EditShield: Protecting Unauthorized Image Editing by Instruction-guided Diffusion Models." ECCV 2024. https://arxiv.org/abs/2311.12066
+Jinsu Kim, Yunhun Nam, Minseon Kim, Sangpil Kim, and Jongheon Jeong. "BlurGuard: A Simple Approach for Robustifying Image Protection Against AI-Powered Editing." 2025. https://arxiv.org/abs/2511.00143
+Tim Brooks, Aleksander Holynski, and Alexei A. Efros. "InstructPix2Pix: Learning to Follow Image Editing Instructions." 2022. https://arxiv.org/abs/2211.09800
+Hadi Salman, Alaa Khaddaj, Guillaume Leclerc, Andrew Ilyas, and Aleksander Madry. "Raising the Cost of Malicious AI-Powered Image Editing" (PhotoGuard). 2023. https://arxiv.org/abs/2302.06588
+Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Bjorn Ommer. "High-Resolution Image Synthesis with Latent Diffusion Models." 2021. https://arxiv.org/abs/2112.10752
+
+BibTeX:
+
+@inproceedings{chen2024editshield,
+  title={EditShield: Protecting Unauthorized Image Editing by Instruction-guided Diffusion Models},
+  author={Chen, Ruoxi and Jin, Haibo and Liu, Yixin and Chen, Jinyin and Wang, Haohan and Sun, Lichao},
+  booktitle={European Conference on Computer Vision},
+  year={2024}
+}
+
+@article{kim2025blurguard,
+  title={BlurGuard: A Simple Approach for Robustifying Image Protection Against AI-Powered Editing},
+  author={Kim, Jinsu and Nam, Yunhun and Kim, Minseon and Kim, Sangpil and Jeong, Jongheon},
+  journal={arXiv preprint arXiv:2511.00143},
+  year={2025}
+}
+
+@article{brooks2022instructpix2pix,
+  title={InstructPix2Pix: Learning to Follow Image Editing Instructions},
+  author={Brooks, Tim and Holynski, Aleksander and Efros, Alexei A.},
+  journal={arXiv preprint arXiv:2211.09800},
+  year={2022}
+}
+
+@article{salman2023raising,
+  title={Raising the Cost of Malicious AI-Powered Image Editing},
+  author={Salman, Hadi and Khaddaj, Alaa and Leclerc, Guillaume and Ilyas, Andrew and Madry, Aleksander},
+  journal={arXiv preprint arXiv:2302.06588},
+  year={2023}
+}
+
+@article{rombach2021highresolution,
+  title={High-Resolution Image Synthesis with Latent Diffusion Models},
+  author={Rombach, Robin and Blattmann, Andreas and Lorenz, Dominik and Esser, Patrick and Ommer, Bjorn},
+  journal={arXiv preprint arXiv:2112.10752},
+  year={2021}
+}
