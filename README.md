@@ -9,6 +9,12 @@ Developers building the DMG need internet once to install Python dependencies
 and download the pinned model files from their original Hugging Face repository.
 The completed DMG contains those files and runs offline.
 
+This prototype is based on EditShield and BlurGuard models, see acknowledgments below. Using Claude Code, SafeShot is built as a merge of the two. It has two protection modes,
+- IP2P Mode: Protection against IP2P image editing, see acknowledgment below, and this mode uses the EditShield protection layer.
+- SD Mode: Protection against Stable Diffusion Inpainting image editing, see acknowledgment below, and this mode uses the BlurGuard protection layer.
+
+Note: EditShield and BlurGuard are two different protection layers, and can't be combined one after another due to them cancelling each other, resulting in no protection at the end. 
+
 ## Easy Download
 
 macOS: Download SafeShot.dmg, double-click to mount, drag SafeShot.app to Applications. First launch: right-click → Open (to bypass Gatekeeper on the unsigned build).
