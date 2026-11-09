@@ -1,6 +1,6 @@
 # SafeShot Desktop
 
-SafeShot is an offline desktop application for applying the local EditShield
+SafeShot is an offline desktop application for applying a local
 VAE protection prototype to an uploaded image. End users install a DMG, launch
 SafeShot from an icon, and use a local browser interface. They do not need
 Python, Conda, a terminal, an account, or internet access.
@@ -192,8 +192,8 @@ application through the Dock or operating-system application controls.
 - The installed application is large because it contains PyTorch, Gradio, and
   the model checkpoint.
 
-## Research Acknowledgements and Citations
-SafeShot is built from existent prototypes of EditShield and BlurGuard. Moreover, we focused on specifics attacks of IP2P and SD (Stable Diffusion).
+## Acknowledgements and Citations
+SafeShot is built from existent prototypes of EditShield and BlurGuard. The code of the model is taken from their respective repositories, and merged into SafeShot using Claude Code. Moreover, we focused on protecting against specifics attacks of IP2P and SD (Stable Diffusion).
 
 Core references:
 - Baseline MIT Prototype: Hadi Salman, Alaa Khaddaj, Guillaume Leclerc, Andrew Ilyas, and Aleksander Madry. "Raising the Cost of Malicious AI-Powered Image Editing" (PhotoGuard). 2023. https://arxiv.org/abs/2302.06588
