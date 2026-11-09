@@ -1,8 +1,8 @@
-# ImageShield Desktop
+# SafeShot Desktop
 
-ImageShield is an offline desktop application for applying the local EditShield
+SafeShot is an offline desktop application for applying the local EditShield
 VAE protection prototype to an uploaded image. End users install a DMG, launch
-ImageShield from an icon, and use a local browser interface. They do not need
+SafeShot from an icon, and use a local browser interface. They do not need
 Python, Conda, a terminal, an account, or internet access.
 
 Developers building the DMG need internet once to install Python dependencies
@@ -11,8 +11,8 @@ The completed DMG contains those files and runs offline.
 
 ## Easy Download
 
-macOS: Download ImageShield.dmg, double-click to mount, drag ImageShield.app to Applications. First launch: right-click → Open (to bypass Gatekeeper on the unsigned build).
-Also available via link: https://github.com/603-gl/SafeShot/releases/download/v1.0.0/ImageShield.dmg
+macOS: Download SafeShot.dmg, double-click to mount, drag SafeShot.app to Applications. First launch: right-click → Open (to bypass Gatekeeper on the unsigned build).
+Also available via link: https://github.com/603-gl/SafeShot/releases/download/v1.0.0/SafeShot.dmg
 
 The "right-click → Open" step is required because the DMG is unsigned (no Apple Developer ID). The build script already prints a warning about this — it's expected for a dev/research tool.
 
@@ -27,8 +27,8 @@ Requirements:
 - Several gigabytes of free disk space
 
 ```bash
-git clone https://github.com/SabrinaYyy/ImageShield_dmg.git
-cd ImageShield_dmg
+git clone https://github.com/SabrinaYyy/SafeShot_dmg.git
+cd SafeShot_dmg
 
 python3.10 -m venv .venv
 source .venv/bin/activate
@@ -44,7 +44,7 @@ chmod +x scripts/download_model.sh scripts/build_macos.sh
 The finished installer is:
 
 ```text
-dist/dmg/ImageShield.dmg
+dist/dmg/SafeShot.dmg
 ```
 
 The first build can take several minutes. PyInstaller packages Python, Gradio,
@@ -53,7 +53,7 @@ PyTorch, the application, and the downloaded model into one offline app.
 ## Model Download
 
 `scripts/download_model.sh` downloads only the VAE and scheduler files required
-by ImageShield:
+by SafeShot:
 
 ```text
 models/instruct-pix2pix/
@@ -100,12 +100,12 @@ before cancellation takes effect.
 ## Repository Structure
 
 ```text
-ImageShield/
+SafeShot/
   app.py
-  ImageShield.spec
+  SafeShot.spec
   requirements.txt
   requirements-build.txt
-  imageshield/
+  SafeShot/
     protection.py
     resources.py
     ui.py
@@ -127,7 +127,7 @@ ImageShield/
 
 Without an Apple signing identity, `build_macos.sh` creates an unsigned
 development DMG. Another Apple Silicon Mac may require the user to right-click
-ImageShield and choose **Open**.
+SafeShot and choose **Open**.
 
 For a signed build:
 
@@ -156,8 +156,8 @@ Download the same pinned model files into `models\instruct-pix2pix`, then run:
 .\scripts\build_windows.ps1
 ```
 
-The PyInstaller output is `dist\ImageShield\ImageShield.exe`. Compile
-`packaging\windows\ImageShield.iss` with Inno Setup to create the installer.
+The PyInstaller output is `dist\SafeShot\SafeShot.exe`. Compile
+`packaging\windows\SafeShot.iss` with Inno Setup to create the installer.
 
 ## Privacy and Storage
 
@@ -167,7 +167,7 @@ The PyInstaller output is `dist\ImageShield\ImageShield.exe`. Compile
 - Generated downloads are stored in the user's application-data directory.
 - Generated files older than 24 hours are removed during a later startup.
 
-Closing the browser tab does not necessarily stop ImageShield. Quit the
+Closing the browser tab does not necessarily stop SafeShot. Quit the
 application through the Dock or operating-system application controls.
 
 ## Release Checklist
@@ -193,49 +193,12 @@ application through the Dock or operating-system application controls.
   the model checkpoint.
 
 ## Research Acknowledgements and Citations
-ImageShield is built from existent prototypes of EditShield and BlurGuard. 
+SafeShot is built from existent prototypes of EditShield and BlurGuard. Moreover, we focused on specifics attacks of IP2P and SD (Stable Diffusion).
 
 Core references:
-
-Ruoxi Chen, Haibo Jin, Yixin Liu, Jinyin Chen, Haohan Wang, and Lichao Sun. "EditShield: Protecting Unauthorized Image Editing by Instruction-guided Diffusion Models." ECCV 2024. https://arxiv.org/abs/2311.12066
-Jinsu Kim, Yunhun Nam, Minseon Kim, Sangpil Kim, and Jongheon Jeong. "BlurGuard: A Simple Approach for Robustifying Image Protection Against AI-Powered Editing." 2025. https://arxiv.org/abs/2511.00143
-Tim Brooks, Aleksander Holynski, and Alexei A. Efros. "InstructPix2Pix: Learning to Follow Image Editing Instructions." 2022. https://arxiv.org/abs/2211.09800
-Hadi Salman, Alaa Khaddaj, Guillaume Leclerc, Andrew Ilyas, and Aleksander Madry. "Raising the Cost of Malicious AI-Powered Image Editing" (PhotoGuard). 2023. https://arxiv.org/abs/2302.06588
-Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Bjorn Ommer. "High-Resolution Image Synthesis with Latent Diffusion Models." 2021. https://arxiv.org/abs/2112.10752
-
-BibTeX:
-
-@inproceedings{chen2024editshield,
-  title={EditShield: Protecting Unauthorized Image Editing by Instruction-guided Diffusion Models},
-  author={Chen, Ruoxi and Jin, Haibo and Liu, Yixin and Chen, Jinyin and Wang, Haohan and Sun, Lichao},
-  booktitle={European Conference on Computer Vision},
-  year={2024}
-}
-
-@article{kim2025blurguard,
-  title={BlurGuard: A Simple Approach for Robustifying Image Protection Against AI-Powered Editing},
-  author={Kim, Jinsu and Nam, Yunhun and Kim, Minseon and Kim, Sangpil and Jeong, Jongheon},
-  journal={arXiv preprint arXiv:2511.00143},
-  year={2025}
-}
-
-@article{brooks2022instructpix2pix,
-  title={InstructPix2Pix: Learning to Follow Image Editing Instructions},
-  author={Brooks, Tim and Holynski, Aleksander and Efros, Alexei A.},
-  journal={arXiv preprint arXiv:2211.09800},
-  year={2022}
-}
-
-@article{salman2023raising,
-  title={Raising the Cost of Malicious AI-Powered Image Editing},
-  author={Salman, Hadi and Khaddaj, Alaa and Leclerc, Guillaume and Ilyas, Andrew and Madry, Aleksander},
-  journal={arXiv preprint arXiv:2302.06588},
-  year={2023}
-}
-
-@article{rombach2021highresolution,
-  title={High-Resolution Image Synthesis with Latent Diffusion Models},
-  author={Rombach, Robin and Blattmann, Andreas and Lorenz, Dominik and Esser, Patrick and Ommer, Bjorn},
-  journal={arXiv preprint arXiv:2112.10752},
-  year={2021}
-}
+- Baseline MIT Prototype: Hadi Salman, Alaa Khaddaj, Guillaume Leclerc, Andrew Ilyas, and Aleksander Madry. "Raising the Cost of Malicious AI-Powered Image Editing" (PhotoGuard). 2023. https://arxiv.org/abs/2302.06588
+- EditShield Paper: Ruoxi Chen, Haibo Jin, Yixin Liu, Jinyin Chen, Haohan Wang, and Lichao Sun. "EditShield: Protecting Unauthorized Image Editing by Instruction-guided Diffusion Models." ECCV 2024. https://arxiv.org/abs/2311.12066
+- BlurGuard Paper: Jinsu Kim, Yunhun Nam, Minseon Kim, Sangpil Kim, and Jongheon Jeong. "BlurGuard: A Simple Approach for Robustifying Image Protection Against AI-Powered Editing." 2025. https://arxiv.org/abs/2511.00143
+- IP2P: Tim Brooks, Aleksander Holynski, and Alexei A. Efros. "InstructPix2Pix: Learning to Follow Image Editing Instructions." 2022. https://arxiv.org/abs/2211.09800
+- Stable Diffusion Model: https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-inpainting
+- Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Bjorn Ommer. "High-Resolution Image Synthesis with Latent Diffusion Models." 2021. https://arxiv.org/abs/2112.10752
